@@ -1,6 +1,6 @@
 # Subcategory Slider
 
-
+<img width="1437" alt="Screenshot 2024-07-09 at 4 21 41 PM" src="https://github.com/Basit-Arif/Shopify_Subcategory_Template/assets/26505810/ac3e369f-93cb-4314-9613-1a3c1b5af842">
 
 ## Overview
 
@@ -101,8 +101,18 @@ The above code is the schema for the slider, detailing its settings and block st
 
 All subcategories have the same slider configuration to maintain a consistent user interface. Adjust the required_titles array in the Liquid code to match the subcategory names in your store.
 
-
-
+## Step by Step Implementation with visuals
+![1](https://github.com/Basit-Arif/Shopify_Subcategory_Template/assets/26505810/33264cf4-d50e-4a7e-b621-e29acb5ccb5c)
+![2](https://github.com/Basit-Arif/Shopify_Subcategory_Template/assets/26505810/df2505d9-20d7-4a76-b471-5cc887941616)
+![3](https://github.com/Basit-Arif/Shopify_Subcategory_Template/assets/26505810/62a88e0e-9c73-4a8e-9fa5-f87c22ea395d)
+![4](https://github.com/Basit-Arif/Shopify_Subcategory_Template/assets/26505810/a1bd85b7-6bee-4a59-a2c1-6b6d557f7868)
+![5](https://github.com/Basit-Arif/Shopify_Subcategory_Template/assets/26505810/2b466db3-d931-47c6-b3fe-2289535de070)
+![6](https://github.com/Basit-Arif/Shopify_Subcategory_Template/assets/26505810/e0184073-efc2-4187-b17b-09e6f4069166)
+![7](https://github.com/Basit-Arif/Shopify_Subcategory_Template/assets/26505810/228b4d10-f1c4-4f8c-9c0f-74b54d4521a8)
+![8](https://github.com/Basit-Arif/Shopify_Subcategory_Template/assets/26505810/0968bfb2-2840-44d3-8083-53f3b78f4d38)
+![9](https://github.com/Basit-Arif/Shopify_Subcategory_Template/assets/26505810/32d0fdf0-0273-4084-adbe-2098e369c58d)
+![10](https://github.com/Basit-Arif/Shopify_Subcategory_Template/assets/26505810/63f97142-e0e3-4de8-bdbc-2d11564d1011)
+![11](https://github.com/Basit-Arif/Shopify_Subcategory_Template/assets/26505810/02e85ee4-ffed-47ae-9250-91e9ff0bacd2)
 
 
 
