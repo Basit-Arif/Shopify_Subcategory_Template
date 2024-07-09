@@ -1,6 +1,6 @@
 # Subcategory Slider
 
-
+<img width="1437" alt="Screenshot 2024-07-09 at 4 21 41 PM" src="https://github.com/Basit-Arif/Shopify_Subcategory_Template/assets/26505810/ac3e369f-93cb-4314-9613-1a3c1b5af842">
 
 ## Overview
 
