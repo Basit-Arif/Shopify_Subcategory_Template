@@ -1,0 +1,184 @@
+{%- stylesheet -%}
+.custom-carousel-slider {
+  margin: 0 auto;
+  max-width: 1000px; /* Adjust maximum width as needed */
+  overflow: hidden; /* Hide overflow to create slider effect */
+}
+
+.custom-carousel-slider .card__media:hover {
+  transform: scale(1.1); /* Scale up the image on hover */
+  transition: transform 0.3s ease; /* Smooth transition for the scaling */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add box shadow for depth */
+}
+
+.custom-carousel-slider ul {
+  display: flex;
+  padding: 0;
+  list-style: none;
+  transition: transform 0.5s ease-in-out; /* Smooth transition between slides */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
+  -ms-overflow-style: -ms-autohiding-scrollbar; /* Hide scrollbar on Edge and IE */
+}
+
+.custom-carousel-slider li {
+  text-align: center;
+  flex: 1 0 auto; /* Allow items to grow and shrink based on available space */
+  margin-right: 20px; /* Adjust space between items */
+}
+
+.custom-carousel-slider .card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.custom-carousel-slider .card {
+  text-align: center;
+}
+
+.custom-carousel-slider .card__media {
+  width: 100px; /* Adjust icon size */
+  height: 100px;
+  margin: 0 auto;
+  position: relative; /* Positioning for text */
+  overflow: hidden; /* Ensure image stays within bounds */
+  border-radius: 50%; /* Rounded shape for the icon */
+}
+
+.custom-carousel-slider .icon-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;/* Maintain aspect ratio */
+  object-position: center;
+}
+
+.custom-carousel-slider .card__content {
+  margin-top: 10px;
+  
+}
+
+.custom-carousel-slider .card__heading {
+  font-size: 14px;
+  font-weight:bold;
+  color: inherit; /* Match text color with theme */
+}
+
+@media (max-width: 768px) {
+  .custom-carousel-slider {
+    padding: 0; /* Remove padding on smaller screens */
+  }
+
+  .custom-carousel-slider ul {
+    width: auto; /* Allow ul to expand to fit all list items */
+  }
+
+  .custom-carousel-slider li {
+    flex-basis: calc(100% / {{ section.settings.items_per_row | default: 4 }} - 20px); /* Adjust item width for smaller screens */
+    margin-right: 20px; /* Adjust space between items */
+    margin-bottom: 20px; /* Add margin bottom to create space between rows */
+  }
+
+  .custom-carousel-slider .card__media {
+    width: 80px; /* Further reduce icon size for smaller screens */
+    height: 80px;
+  }
+
+  .custom-carousel-slider .card__heading {
+    font-size: 12px; /* Further reduce font size for smaller screens */
+  }
+}
+{%- endstylesheet -%}
+
+{% capture required_titles %}
+  Frocks (2-6 Years),Suits (2-6Y),girls_top_tees,Toddler Girls,
+{% endcapture %}
+
+{% assign required_titles_array = required_titles | split: ',' %}
+
+{% for name in required_titles_array %}
+    {% assign title_string = name | strip %} 
+    
+    {% if page_title == title_string %}
+      <div class="custom-carousel-slider section-{{ section.id }}-padding">
+  <ul>
+    {%- for block in section.blocks -%}
+      <li class="slide-item" style="flex: 0 0 calc(100% / {{ section.settings.items_per_row | default: 4 }} - 20px);">
+        <a href="{{ block.settings.item_url }}" class="card-link">
+          <div class="card">
+            <div class="card__media">
+              <div class="icon-image">
+                <img src="{{ block.settings.item_image | img_url: 'large' }}" alt="{{ block.settings.item_title }}">
+              </div>
+            </div>
+            <div class="card__content">
+              <h3 class="card__heading">{{ block.settings.item_title }}</h3>
+            </div>
+          </div>
+        </a>
+      </li>
+    {%- endfor -%}
+    
+  </ul>
+</div>
+    {% endif %}
+      
+{% endfor %}
+
+{% schema %}
+{
+  "name": "Slider(toddler girl)",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Slider Settings"
+    },
+    {
+      "type": "range",
+      "id": "items_per_row",
+      "label": "Items per Row",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "default": 4
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection_item",
+      "name": "Collection Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "item_image",
+          "label": "Image",
+          "info": "Upload an image for this collection item."
+        },
+        {
+          "type": "text",
+          "id": "item_title",
+          "label": "Title",
+          "default": "Collection Item Title"
+        },
+        {
+          "type": "url",
+          "id": "item_url",
+          "label": "Link URL",
+          "info": "Enter the URL where clicking the item will navigate."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Slide(toddler)",
+      "category": "Custom",
+      "blocks": [
+        { "type": "collection_item" },
+        { "type": "collection_item" },
+        { "type": "collection_item" },
+        { "type": "collection_item" }
+      ]
+    }
+  ]
+}
+{% endschema %}
